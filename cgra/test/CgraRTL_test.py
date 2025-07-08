@@ -567,7 +567,7 @@ def init_param(topology, FuList = [MemUnitRTL, AdderRTL],
                    src_query_pkt)
   return th
 
-def test_homogeneous_2x2(cmdline_opts):
+def test_vector_mesh_12x12(cmdline_opts):
   topology = "Mesh"
   FuList = [AdderRTL,
             MulRTL,
@@ -578,14 +578,15 @@ def test_homogeneous_2x2(cmdline_opts):
             BranchRTL,
             MemUnitRTL,
             SelRTL,
-            RetRTL,
-           ]
-  th = init_param(topology, FuList)
-
+            VectorMulComboRTL,
+            VectorAdderComboRTL]
+  data_bitwidth = 32
+  th = init_param(topology, FuList, x_tiles = 12, y_tiles = 12,
+                  data_bitwidth = data_bitwidth)
   th.elaborate()
   th.dut.set_metadata(VerilogVerilatorImportPass.vl_Wno_list,
-                       ['UNSIGNED', 'UNOPTFLAT', 'WIDTH', 'WIDTHCONCAT',
-                        'ALWCOMBORDER'])
+                      ['UNSIGNED', 'UNOPTFLAT', 'WIDTH', 'WIDTHCONCAT',
+                       'ALWCOMBORDER'])
   th = config_model_with_cmdline_opts(th, cmdline_opts, duts = ['dut'])
   run_sim(th)
 

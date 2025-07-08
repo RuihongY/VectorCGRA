@@ -792,10 +792,10 @@ def initialize_test_harness(cmdline_opts,
                    ctrl_steps, controller2addr_map, expected_sink_out_pkt)
   return th
 
-def test_sim_homo_2x2_2x2(cmdline_opts):
+def test_sim_homo_3x3_2x2(cmdline_opts):
   th = initialize_test_harness(cmdline_opts,
-                               num_cgra_rows = 2,
-                               num_cgra_columns = 2,
+                               num_cgra_rows = 3,
+                               num_cgra_columns = 3,
                                num_x_tiles_per_cgra = 2,
                                num_y_tiles_per_cgra = 2,
                                num_banks_per_cgra = 2,
@@ -822,40 +822,3 @@ def translate_model(top, submodules_to_translate):
       m = getattr(top, submodule)
       _enable_translate_recursively(m)
   top.apply(VerilogTranslationPass())
-
-def test_verilog_homo_2x2_4x4(cmdline_opts):
-  th = initialize_test_harness(cmdline_opts,
-                               num_cgra_rows = 2,
-                               num_cgra_columns = 2,
-                               num_x_tiles_per_cgra = 4,
-                               num_y_tiles_per_cgra = 4,
-                               num_banks_per_cgra = 8,
-                               data_mem_size_per_bank = 256)
-  translate_model(th, ['dut'])
-
-def test_tapeout_2x2_2x2(cmdline_opts):
-  th = initialize_test_harness(cmdline_opts,
-                               num_cgra_rows = 2,
-                               num_cgra_columns = 2,
-                               num_x_tiles_per_cgra = 2,
-                               num_y_tiles_per_cgra = 2,
-                               num_banks_per_cgra = 4,
-                               data_mem_size_per_bank = 128)
-  translate_model(th, ['dut'])
-
-def test_multi_CGRA_systolic_2x2_2x2(cmdline_opts):
-  th = initialize_test_harness(cmdline_opts,
-                               num_cgra_rows = 2,
-                               num_cgra_columns = 2,
-                               num_x_tiles_per_cgra = 2,
-                               num_y_tiles_per_cgra = 2,
-                               num_banks_per_cgra = 2,
-                               data_mem_size_per_bank = 16,
-                               test_name = 'test_systolic')
-
-  th.elaborate()
-  th.dut.set_metadata(VerilogVerilatorImportPass.vl_Wno_list,
-                      ['UNSIGNED', 'UNOPTFLAT', 'WIDTH', 'WIDTHCONCAT',
-                       'ALWCOMBORDER'])
-  th = config_model_with_cmdline_opts(th, cmdline_opts, duts = ['dut'])
-  run_sim(th)

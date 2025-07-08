@@ -55,7 +55,7 @@ class DataMemWithCrossbarRTL(Component):
     # Constant
     global_addr_nbits = clog2(data_mem_size_global)
     per_bank_addr_nbits = clog2(data_mem_size_per_bank)
-    assert(2 ** global_addr_nbits == data_mem_size_global)
+    assert 2 ** global_addr_nbits >= data_mem_size_global  ## Allow slightly over-provisioned address space
     assert(2 ** per_bank_addr_nbits == data_mem_size_per_bank)
     XType = mk_bits(max(clog2(multi_cgra_columns), 1))
     YType = mk_bits(max(clog2(multi_cgra_rows), 1))

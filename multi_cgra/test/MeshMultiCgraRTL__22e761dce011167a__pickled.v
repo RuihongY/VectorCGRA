@@ -6172,16 +6172,16 @@ module DataMemWithCrossbarRTL__419c8a366359e511
   input logic [0:0] send_to_noc_store_pkt__rdy  ,
   output logic [0:0] send_to_noc_store_pkt__val  
 );
-  localparam logic [2:0] __const__num_xbar_in_rd_ports_at_assemble_xbar_pkt  = 3'd4;
-  localparam logic [2:0] __const__num_xbar_in_wr_ports_at_assemble_xbar_pkt  = 3'd4;
+  localparam logic [2:0] __const__num_xbar_in_rd_ports_at_assemble_xbar_pkt  = 3'd3;
+  localparam logic [2:0] __const__num_xbar_in_wr_ports_at_assemble_xbar_pkt  = 3'd3;
   localparam logic [1:0] __const__num_rd_tiles_at_assemble_xbar_pkt  = 2'd3;
-  localparam logic [2:0] __const__per_bank_addr_nbits_at_assemble_xbar_pkt  = 3'd4;
+  localparam logic [2:0] __const__per_bank_addr_nbits_at_assemble_xbar_pkt  = 3'd3;
   localparam logic [1:0] __const__num_banks_per_cgra_at_assemble_xbar_pkt  = 2'd2;
   localparam logic [1:0] __const__num_wr_tiles_at_assemble_xbar_pkt  = 2'd3;
   localparam logic [1:0] __const__num_rd_tiles_at_update_all  = 2'd3;
   localparam logic [1:0] __const__num_wr_tiles_at_update_all  = 2'd3;
-  localparam logic [2:0] __const__num_xbar_in_rd_ports_at_update_all  = 3'd4;
-  localparam logic [2:0] __const__num_xbar_in_wr_ports_at_update_all  = 3'd4;
+  localparam logic [2:0] __const__num_xbar_in_rd_ports_at_update_all  = 3'd3;
+  localparam logic [2:0] __const__num_xbar_in_wr_ports_at_update_all  = 3'd3;
   localparam logic [1:0] __const__num_xbar_out_wr_ports_at_update_all  = 2'd3;
   localparam logic [1:0] __const__num_xbar_out_rd_ports_at_update_all  = 2'd3;
   localparam logic [1:0] __const__num_banks_per_cgra_at_update_all  = 2'd2;

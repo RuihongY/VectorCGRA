@@ -16349,23 +16349,23 @@ module DataMemWithCrossbarRTL__a02ab762398324df
   input logic [0:0] send_to_noc_store_pkt__rdy  ,
   output logic [0:0] send_to_noc_store_pkt__val  
 );
-  localparam logic [4:0] __const__num_xbar_in_rd_ports_at_assemble_xbar_pkt  = 5'd24;
-  localparam logic [4:0] __const__num_xbar_in_wr_ports_at_assemble_xbar_pkt  = 5'd24;
+  localparam logic [4:0] __const__num_xbar_in_rd_ports_at_assemble_xbar_pkt  = 5'd12;
+  localparam logic [4:0] __const__num_xbar_in_wr_ports_at_assemble_xbar_pkt  = 5'd12;
   localparam logic [4:0] __const__num_rd_tiles_at_assemble_xbar_pkt  = 5'd23;
-  localparam logic [2:0] __const__per_bank_addr_nbits_at_assemble_xbar_pkt  = 3'd4;
+  localparam logic [2:0] __const__per_bank_addr_nbits_at_assemble_xbar_pkt  = 3'd5;
   localparam logic [1:0] __const__num_banks_per_cgra_at_assemble_xbar_pkt  = 2'd2;
   localparam logic [4:0] __const__num_wr_tiles_at_assemble_xbar_pkt  = 5'd23;
   localparam logic [4:0] __const__num_rd_tiles_at_update_all  = 5'd23;
   localparam logic [4:0] __const__num_wr_tiles_at_update_all  = 5'd23;
-  localparam logic [4:0] __const__num_xbar_in_rd_ports_at_update_all  = 5'd24;
-  localparam logic [4:0] __const__num_xbar_in_wr_ports_at_update_all  = 5'd24;
+  localparam logic [4:0] __const__num_xbar_in_rd_ports_at_update_all  = 5'd12;
+  localparam logic [4:0] __const__num_xbar_in_wr_ports_at_update_all  = 5'd12;
   localparam logic [1:0] __const__num_xbar_out_wr_ports_at_update_all  = 2'd3;
   localparam logic [1:0] __const__num_xbar_out_rd_ports_at_update_all  = 2'd3;
   localparam logic [1:0] __const__num_banks_per_cgra_at_update_all  = 2'd2;
   localparam logic [4:0] __const__data_mem_size_per_bank_at_update_all  = 5'd16;
-  localparam logic [3:0] __const__CMD_LOAD_RESPONSE  = 4'd10;
-  localparam logic [3:0] __const__CMD_LOAD_REQUEST  = 4'd9;
-  localparam logic [3:0] __const__CMD_STORE_REQUEST  = 4'd11;
+  localparam logic [3:0] __const__CMD_LOAD_RESPONSE  = 4'd5;
+  localparam logic [3:0] __const__CMD_LOAD_REQUEST  = 4'd4;
+  localparam logic [3:0] __const__CMD_STORE_REQUEST  = 4'd6;
   logic [1:0] idTo2d_x_lut [0:3];
   logic [0:0] idTo2d_y_lut [0:3];
   logic [0:0] initWrites [0:1][0:15];
